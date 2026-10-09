@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>帅康 · 高端厨房电器官方网站</title>
+<style>
+:root{--bg:#fff;--bg2:#f5f5f4;--tx:#222;--mu:#777;--ln:#e4e4e2;--red:#b5121b;--hero:#2a0b0d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161515;--bg2:#1f1d1d;--tx:#eee;--mu:#9a9594;--ln:#333;--red:#e0414a}}
+:root[data-theme="dark"]{--bg:#161515;--bg2:#1f1d1d;--tx:#eee;--mu:#9a9594;--ln:#333;--red:#e0414a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--tx);font:15px/1.7 "PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--ln)}
+.bar{display:flex;align-items:center;height:68px;gap:32px}
+.logo{font-size:26px;font-weight:700;letter-spacing:.25em;color:var(--red);white-space:nowrap}
+nav{display:flex;align-items:center;gap:28px;flex:1;height:68px;overflow-x:auto;scrollbar-width:none}
+nav>a,nav>button{display:flex;align-items:center;height:68px;padding:0;background:none;border:0;border-bottom:2px solid transparent;white-space:nowrap}
+nav>a:hover,nav>button:hover,nav>button[aria-expanded=true],nav>a.cur{border-bottom-color:var(--red)}
+.tools{display:flex;align-items:center;gap:16px;position:relative}
+.search{border:0;border-bottom:1px solid var(--tx);background:none;color:var(--tx);width:160px;padding:4px 0;font:inherit}
+.sug{position:absolute;top:44px;left:0;width:260px;background:var(--bg);border:1px solid var(--ln);box-shadow:0 10px 24px rgba(0,0,0,.12);display:none}
+.sug button{display:flex;justify-content:space-between;width:100%;padding:9px 14px;background:none;border:0;text-align:left;font-size:13px}
+.sug button:hover{background:var(--bg2);color:var(--red)}
+.sug p{padding:10px 14px;font-size:13px;color:var(--mu)}
+.wl{background:none;border:1px solid var(--ln);padding:5px 14px;white-space:nowrap}
+.wl:hover{border-color:var(--red);color:var(--red)}
+.mega{display:none;position:absolute;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--ln);box-shadow:0 20px 30px rgba(0,0,0,.08)}
+.mega.on{display:block}
+.mega .wrap{display:grid;grid-template-columns:1fr 1.6fr 2.4fr;padding-top:28px;padding-bottom:32px}
+.col{padding:0 24px;border-left:1px solid var(--ln)}
+.col:first-child{border:0;padding-left:0}
+.col h4{font-size:14px;font-weight:500;margin-bottom:18px;text-align:center}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:18px 8px}
+.items button,.series button{background:none;border:0;text-align:center;font-size:12px;color:var(--mu);line-height:1.4}
+.items button:hover,.series button:hover{color:var(--red)}
+.items svg{display:block;margin:0 auto 6px;width:48px;height:48px;stroke:currentColor;fill:none;stroke-width:1.2}
+.series button{display:block;width:100%;margin-bottom:14px}
+.hero{background:var(--hero);color:#fff;padding:96px 0 72px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-8%;top:-30%;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#b5121b 0,transparent 68%);opacity:.55}
+.hero .wrap{position:relative;z-index:1}
+.sl{min-height:250px;transition:opacity .4s}
+.sl.out{opacity:0}
+.hero h1{font-size:clamp(34px,5.4vw,64px);font-weight:300;line-height:1.25;letter-spacing:.06em;max-width:11em}
+.hero p{margin:22px 0 34px;color:#d9c7c8;max-width:30em}
+.btn{display:inline-block;padding:11px 34px;border:1px solid #fff;color:#fff;background:none}
+.btn:hover{background:#fff;color:var(--hero)}
+.btn.r{border-color:var(--red);color:var(--red)}
+.btn.r:hover,.btn.f{background:var(--red);color:#fff}
+.dots{display:flex;gap:10px;margin-top:20px}
+.dots button{width:36px;height:4px;border:0;background:#ffffff55;padding:0}
+.dots button.on{background:#fff}
+section{padding:80px 0}
+h2{font-size:30px;font-weight:400;text-align:center;letter-spacing:.1em}
+.sub{text-align:center;color:var(--mu);margin:8px 0 44px}
+.scenes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ln);border:1px solid var(--ln)}
+.scene{background:var(--bg);padding:36px 24px;text-align:center;border:0;transition:background .2s}
+.scene:hover{background:var(--bg2)}
+.scene svg{width:72px;height:72px;stroke:var(--red);fill:none;stroke-width:1.2;margin-bottom:12px}
+.scene h3{font-size:18px;font-weight:500}
+.scene p{color:var(--mu);font-size:13px;margin-top:6px}
+.alt{background:var(--bg2)}
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.tabs button{padding:6px 22px;border:1px solid var(--ln);background:var(--bg)}
+.tabs button.on{background:var(--red);border-color:var(--red);color:#fff}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod{background:var(--bg);padding:28px 20px 24px;text-align:center;position:relative;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.prod:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.1)}
+.prod svg{width:100%;height:120px;stroke:var(--mu);fill:none;stroke-width:1.2}
+.prod h3{font-size:16px;font-weight:500;margin-top:14px}
+.prod p{font-size:13px;color:var(--mu)}
+.prod b{display:block;margin-top:10px;color:var(--red);font-weight:500}
+.heart{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:1px solid var(--ln);background:var(--bg);font-size:16px;line-height:1}
+.heart[aria-pressed=true]{color:var(--red);border-color:var(--red)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mu)}
+.tech{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.tech .box{aspect-ratio:4/3;background:var(--hero);display:grid;place-items:center;align-content:center;color:#fff;text-align:center;padding:24px;gap:12px}
+.box strong{font-size:56px;font-weight:200;letter-spacing:.1em}
+.box span{color:#d9c7c8;max-width:20em}
+.tech h2{text-align:left}
+.tech ul{list-style:none;padding:0;margin:22px 0 28px}
+.tech li button{width:100%;text-align:left;padding:14px 0;background:none;border:0;border-bottom:1px solid var(--ln);display:flex;gap:12px}
+.tech li strong{font-weight:500}
+.tech li.on strong,.tech li button:hover strong{color:var(--red)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+.svc div{padding:28px;border-top:2px solid var(--red);background:var(--bg)}
+.svc h3{font-weight:500;margin-bottom:6px}
+.svc p{color:var(--mu);font-size:13px}
+footer{background:var(--hero);color:#cdbdbe;padding:48px 0 32px;font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between}
+footer h4{color:#fff;font-weight:500;margin-bottom:10px}
+footer a{display:block;line-height:2}
+footer a:hover{color:#fff}
+.copy{width:100%;border-top:1px solid #4a2a2c;padding-top:18px}
+.ov{display:none;position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:20px}
+.ov.on{display:flex}
+.md{background:var(--bg);width:100%;max-width:460px;max-height:90vh;overflow:auto;padding:32px;position:relative}
+.md h3{font-size:20px;font-weight:500;margin-bottom:6px}
+.md .x{position:absolute;top:10px;right:14px;border:0;background:none;font-size:24px}
+.md ul{padding-left:20px;margin:12px 0 20px;color:var(--mu)}
+.md label{display:block;font-size:13px;color:var(--mu);margin-top:14px}
+.md input{width:100%;padding:9px 10px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);font:inherit}
+.md .err{color:var(--red);font-size:12px;min-height:18px}
+.li{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--ln)}
+.li button{background:none;border:0;color:var(--red);font-size:13px}
+#top{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:18px;display:none;z-index:9}
+@media(max-width:860px){.scenes,.prods{grid-template-columns:1fr 1fr}.tech,.svc{grid-template-columns:1fr}.mega .wrap{grid-template-columns:1fr;gap:24px}.col{border:0;padding:0}.search{display:none}.bar{gap:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sl,.prod{transition:none}}
+</style></head><body>
+<header>
+<div class="wrap bar">
+<a class="logo" href="#" aria-label="帅康首页">帅康</a>
+<nav aria-label="主导航">
+<button id="pbtn" aria-expanded="false" aria-controls="mega">产品中心</button>
+<a href="#scene">场景方案</a><a href="#tech">技术创新</a><a href="#svc">服务支持</a><a href="#about">关于帅康</a>
+</nav>
+<div class="tools">
+<input class="search" id="q" placeholder="搜索产品" aria-label="搜索产品" autocomplete="off">
+<div class="sug" id="sug"></div>
+<button class="wl" id="wl">意向清单 (<span id="wn">0</span>)</button>
+</div>
+</div>
+<div class="mega" id="mega"><div class="wrap">
+<div class="col"><h4>智慧厨房解决方案</h4><div class="series"><button data-c="all">帅康睿隐系列</button><button data-c="all">帅康玥影系列 2.0</button><button data-c="all">帅康云影系列</button></div></div>
+<div class="col"><h4>排烟烹饪场景解决方案</h4><div class="items" id="m1"></div></div>
+<div class="col"><h4>洗消饮用场景解决方案</h4><div class="items" id="m2"></div></div>
+</div></div>
+</header>
+
+<div class="hero"><div class="wrap">
+<div class="sl" id="sl"><h1 id="h1"></h1><p id="hp"></p></div>
+<a class="btn" href="#scene">探索厨房方案</a> <button class="btn" id="book1">预约免费量尺</button>
+<div class="dots" id="dots"></div>
+</div></div>
+
+<section id="scene"><div class="wrap">
+<h2>四大场景，一套厨房</h2><p class="sub">点击场景，查看对应产品</p>
+<div class="scenes">
+<button class="scene" data-c="smoke"><svg viewBox="0 0 48 48"><path d="M8 14h32v8H8zM14 22v6M34 22v6M10 28h28v4H10z"/></svg><h3>排烟烹饪</h3><p>吸油烟机、灶具、蒸烤一体机</p></button>
+<button class="scene" data-c="wash"><svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="2"/><circle cx="24" cy="26" r="8"/><path d="M12 13h8"/></svg><h3>洗消饮用</h3><p>洗碗机、净水机、消毒柜</p></button>
+<button class="scene" data-c="cook"><svg viewBox="0 0 48 48"><rect x="12" y="5" width="24" height="38" rx="2"/><path d="M12 20h24M17 10v6M17 25v8"/></svg><h3>精致烹饪</h3><p>灶具、蒸烤箱、微波炉</p></button>
+<button class="scene" data-c="all"><svg viewBox="0 0 48 48"><path d="M6 40h36M10 40V14h12v26M26 40V22h12v18M14 20h4M30 28h4"/></svg><h3>智慧厨房</h3><p>整体搭配，一次设计到位</p></button>
+</div></div></section>
+
+<section class="alt" id="prod"><div class="wrap">
+<h2>热销产品</h2><p class="sub">点击产品看参数，点心形加入意向清单</p>
+<div class="tabs" id="tabs"></div>
+<div class="prods" id="prods"></div>
+</div></section>
+
+<section id="tech"><div class="wrap tech">
+<div class="box" id="tb" aria-live="polite"></div>
+<div><h2>三项核心技术</h2>
+<ul id="tl"></ul>
+<button class="btn r" id="book2">预约体验</button></div>
+</div></section>
+
+<section class="alt" id="svc"><div class="wrap">
+<h2>服务支持</h2><p class="sub">从设计到安装，一家负责到底</p>
+<div class="svc">
+<div><h3>免费上门量尺</h3><p>设计师按户型出方案</p></div>
+<div><h3>专业安装</h3><p>统一标准，安装后清洁</p></div>
+<div><h3>整机延保</h3><p>核心部件可延长保修</p></div>
+</div></div></section>
+
+<footer id="about"><div class="wrap">
+<div><h4>帅康</h4><p>高端厨房电器品牌<br>服务热线 400-000-0000</p></div>
+<div><h4>产品</h4><a href="#prod">排烟烹饪</a><a href="#prod">洗消饮用</a><a href="#prod">精致烹饪</a></div>
+<div><h4>支持</h4><a href="#svc">使用手册</a><a href="#svc">预约安装</a><a href="#svc">寻找门店</a></div>
+<div><h4>关于</h4><a href="#about">品牌故事</a><a href="#about">招贤纳士</a><a href="#about">联系我们</a></div>
+<div class="copy">© 2026 帅康 版权所有（演示页面，产品与价格均为示例）</div>
+</div></footer>
+
+<div class="ov" id="ov"><div class="md" role="dialog" aria-modal="true"><button class="x" id="cx" aria-label="关闭">×</button><div id="mb"></div></div></div>
+<button id="top" aria-label="回到顶部">↑</button>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+var IC={hood:'<path d="M20 30h80v26H20zM40 56v16M80 56v16M30 72h60v10H30z"/>',stove:'<rect x="18" y="34" width="84" height="48" rx="3"/><circle cx="42" cy="58" r="10"/><circle cx="78" cy="58" r="10"/>',dish:'<rect x="22" y="20" width="76" height="80" rx="3"/><circle cx="60" cy="64" r="22"/><path d="M30 30h14"/>',oven:'<rect x="24" y="22" width="72" height="76" rx="3"/><rect x="34" y="34" width="52" height="24"/><rect x="34" y="66" width="52" height="24"/>',water:'<rect x="34" y="16" width="52" height="88" rx="4"/><circle cx="60" cy="44" r="10"/><path d="M48 76h24"/>'};
+var P=[
+{n:'云魔方 侧吸油烟机',c:'smoke',p:4999,d:'大吸力，低噪音，易清洁',i:'hood',s:['风量 23m³/min','噪音 ≤ 48dB','自清洁模式']},
+{n:'集成烹饪中心',c:'smoke',p:12999,d:'烟机灶具蒸烤一体设计',i:'hood',s:['烟灶联动','蒸烤一体','嵌入式安装']},
+{n:'嵌入式燃气灶',c:'cook',p:2699,d:'猛火聚焰，一体成型台面',i:'stove',s:['火力 5.0kW','一体成型','熄火保护']},
+{n:'蒸烤一体机',c:'cook',p:8999,d:'蒸、烤、炸，一台完成',i:'oven',s:['容量 50L','蒸烤联动','APP 控制']},
+{n:'嵌入式微波炉',c:'cook',p:3299,d:'平板加热，受热均匀',i:'oven',s:['容量 34L','平板加热','嵌入式']},
+{n:'嵌入式洗碗机',c:'wash',p:6999,d:'16 套大容量，高温除菌',i:'dish',s:['16 套','高温除菌','烘干存储']},
+{n:'嵌入式消毒柜',c:'wash',p:3999,d:'紫外线加热烘干，餐具即取',i:'oven',s:['容量 100L','高温消毒','嵌入式']},
+{n:'家用净水机',c:'water',p:2999,d:'大通量，即滤即饮',i:'water',s:['通量 800G','RO 反渗透','废水比 3:1']}];
+var CT=[['all','全部'],['smoke','排烟'],['cook','烹饪'],['wash','洗消'],['water','净水']];
+var cur='all',wl={};
+function esc(s){return s}
+function money(n){return '¥'+n.toLocaleString()+' 起'}
+function render(){
+ $('tabs').innerHTML=CT.map(function(t){return '<button data-t="'+t[0]+'" class="'+(t[0]==cur?'on':'')+'">'+t[1]+'</button>'}).join('');
+ var l=P.map(function(x,k){return [x,k]}).filter(function(a){return cur=='all'||a[0].c==cur});
+ $('prods').innerHTML=l.map(function(a){var x=a[0],k=a[1];return '<div class="prod" data-k="'+k+'"><button class="heart" data-h="'+k+'" aria-pressed="'+!!wl[k]+'" aria-label="加入意向清单">'+(wl[k]?'♥':'♡')+'</button><svg viewBox="0 0 120 120">'+IC[x.i]+'</svg><h3>'+x.n+'</h3><p>'+x.d+'</p><b>'+money(x.p)+'</b></div>'}).join('');
+ $('wn').textContent=Object.keys(wl).length;
+}
+function go(c){cur=c;render();$('prod').scrollIntoView();setM(false)}
+function mk(l){return l.map(function(x){return '<button data-c="'+x[2]+'"><svg viewBox="0 0 48 48">'+x[1]+'</svg>'+x[0]+'</button>'}).join('')}
+var A='<rect x="10" y="12" width="28" height="24" rx="2"/><path d="M14 18h20"/>',B='<path d="M8 16h32l-4 8H12zM16 24v10M32 24v10"/>',C='<rect x="8" y="14" width="32" height="20" rx="2"/><circle cx="18" cy="24" r="4"/><circle cx="30" cy="24" r="4"/>',D='<rect x="12" y="8" width="24" height="32" rx="2"/><circle cx="24" cy="26" r="7"/>';
+$('m1').innerHTML=mk([['集成烹饪中心',B,'smoke'],['吸油烟机',B,'smoke'],['嵌入式灶具',C,'cook'],['嵌入式蒸箱',A,'cook'],['嵌入式烤箱',A,'cook'],['蒸烤烹饪机',A,'cook'],['嵌入式微波炉',A,'cook'],['集成灶',D,'cook']]);
+$('m2').innerHTML=mk([['水槽洗碗机',D,'wash'],['嵌入式洗碗机',A,'wash'],['台嵌洗碗机',D,'wash'],['集成净洗中心',D,'wash'],['智慧水槽',C,'wash'],['家用净水机',A,'water'],['商用净水机',D,'water'],['咖啡机',A,'cook'],['全屋净水软水',D,'water'],['燃气热水器',A,'water'],['两用炉',A,'cook'],['嵌入式消毒柜',A,'wash'],['智慧碗柜',A,'wash']]);
+/* mega menu */
+var btn=$('pbtn'),m=$('mega');
+function setM(o){m.classList.toggle('on',o);btn.setAttribute('aria-expanded',o)}
+btn.onclick=function(){setM(!m.classList.contains('on'))};
+btn.onmouseenter=function(){setM(true)};
+document.querySelector('header').onmouseleave=function(){setM(false)};
+m.onclick=function(e){var b=e.target.closest('button');if(b)go(b.dataset.c)};
+document.querySelector('.scenes').onclick=function(e){var b=e.target.closest('button');if(b)go(b.dataset.c)};
+/* products */
+$('tabs').onclick=function(e){var b=e.target.closest('button');if(b){cur=b.dataset.t;render()}};
+$('prods').onclick=function(e){
+ var h=e.target.closest('.heart');
+ if(h){var k=h.dataset.h;if(wl[k])delete wl[k];else wl[k]=1;render();return}
+ var c=e.target.closest('.prod');if(c)detail(+c.dataset.k)};
+function detail(k){var x=P[k];
+ open('<h3>'+x.n+'</h3><p style="color:var(--mu)">'+x.d+'</p><ul>'+x.s.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul><p style="color:var(--red);font-size:20px;margin-bottom:18px">'+money(x.p)+'</p><button class="btn r" id="a1">'+(wl[k]?'已在清单，移出':'加入意向清单')+'</button> <button class="btn r f" id="a2">预约量尺</button>');
+ $('a1').onclick=function(){if(wl[k])delete wl[k];else wl[k]=1;render();close()};
+ $('a2').onclick=book}
+/* modal */
+function open(h){$('mb').innerHTML=h;$('ov').classList.add('on')}
+function close(){$('ov').classList.remove('on')}
+$('cx').onclick=close;
+$('ov').onclick=function(e){if(e.target==$('ov'))close()};
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();setM(false);$('sug').style.display='none'}});
+$('wl').onclick=function(){
+ var ks=Object.keys(wl);
+ open('<h3>意向清单</h3>'+(ks.length?ks.map(function(k){return '<div class="li"><span>'+P[k].n+'</span><span>'+money(P[k].p)+' <button data-r="'+k+'">移除</button></span></div>'}).join('')+'<p style="margin:18px 0"><button class="btn r f" id="a2">预约量尺，获取方案</button></p>':'<p style="color:var(--mu);margin-top:12px">还没有产品，点产品卡上的心形加入。</p>'));
+ if($('a2'))$('a2').onclick=book;
+ $('mb').onclick=function(e){var r=e.target.dataset.r;if(r){delete wl[r];render();$('wl').onclick()}}};
+/* booking form */
+function book(){
+ open('<h3>预约免费上门量尺</h3><p style="color:var(--mu)">填写后，顾问会在 1 个工作日内联系你。</p><label>姓名<input id="f1" autocomplete="name"></label><label>手机号<input id="f2" inputmode="numeric" maxlength="11" autocomplete="tel"></label><label>所在城市<input id="f3"></label><p class="err" id="er" role="alert"></p><button class="btn r f" id="sb">提交预约</button>');
+ $('mb').onclick=null;
+ $('sb').onclick=function(){
+  var n=$('f1').value.trim(),p=$('f2').value.trim(),c=$('f3').value.trim();
+  if(!n)return $('er').textContent='请填写姓名';
+  if(!/^1\d{10}$/.test(p))return $('er').textContent='请输入 11 位手机号';
+  if(!c)return $('er').textContent='请填写所在城市';
+  $('mb').innerHTML='<h3>预约成功</h3><p style="color:var(--mu);margin-top:8px">'+n+'，我们已记录你的预约（'+c+'），顾问会尽快联系你。演示页面不会真实提交数据。</p><p style="margin-top:20px"><button class="btn r" id="ok">好的</button></p>';
+  $('ok').onclick=close}}
+$('book1').onclick=book;$('book2').onclick=book;
+/* search */
+$('q').oninput=function(){
+ var v=this.value.trim(),s=$('sug');
+ if(!v){s.style.display='none';return}
+ var r=P.map(function(x,k){return [x,k]}).filter(function(a){return a[0].n.indexOf(v)>-1||a[0].d.indexOf(v)>-1});
+ s.innerHTML=r.length?r.map(function(a){return '<button data-k="'+a[1]+'"><span>'+a[0].n+'</span><span>'+money(a[0].p)+'</span></button>'}).join(''):'<p>没有找到相关产品</p>';
+ s.style.display='block'};
+$('sug').onclick=function(e){var b=e.target.closest('button');if(b){$('sug').style.display='none';$('q').value='';detail(+b.dataset.k)}};
+document.addEventListener('click',function(e){if(!e.target.closest('.tools'))$('sug').style.display='none'});
+/* hero carousel */
+var H=[['让每一顿饭，<br>远离油烟','从排烟、烹饪到洗消、保鲜，帅康用整套厨房电器，把一个家里最忙的地方变得安静、干净。'],['洗碗这件事，<br>交给机器','16 套大容量洗碗机，高温除菌烘干，饭后只需按一下按钮。'],['一间厨房，<br>一次设计到位','免费上门量尺，设计师按户型搭配烟灶蒸烤洗，统一风格。']],hi=0,tm;
+function slide(i){hi=i;var s=$('sl');s.classList.add('out');setTimeout(function(){$('h1').innerHTML=H[i][0];$('hp').textContent=H[i][1];s.classList.remove('out')},300);
+ $('dots').innerHTML=H.map(function(_,j){return '<button class="'+(j==i?'on':'')+'" data-i="'+j+'" aria-label="第 '+(j+1)+' 屏"></button>'}).join('')}
+function auto(){clearInterval(tm);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)tm=setInterval(function(){slide((hi+1)%H.length)},6000)}
+$('dots').onclick=function(e){var b=e.target.closest('button');if(b){slide(+b.dataset.i);auto()}};
+document.querySelector('.hero').onmouseenter=function(){clearInterval(tm)};
+document.querySelector('.hero').onmouseleave=auto;
+$('h1').innerHTML=H[0][0];$('hp').textContent=H[0][1];slide(0);auto();
+/* tech tabs */
+var T=[['风魔方','风','多腔体风道，烟气更少外溢，油烟分离更彻底。'],['水动力','水','喷淋加高温，洗得干净又省水。'],['聚能焰','火','火力集中，热效率更高，炒菜更有锅气。']];
+function tech(i){$('tb').innerHTML='<strong>'+T[i][1]+'</strong><span>'+T[i][2]+'</span>';
+ $('tl').innerHTML=T.map(function(t,j){return '<li class="'+(j==i?'on':'')+'"><button data-j="'+j+'"><strong>'+t[0]+'</strong>'+t[2].split('，')[0]+'</button></li>'}).join('')}
+$('tl').onclick=function(e){var b=e.target.closest('button');if(b)tech(+b.dataset.j)};
+tech(0);
+/* back to top + nav highlight */
+var tp=$('top');tp.onclick=function(){scrollTo({top:0})};
+addEventListener('scroll',function(){tp.style.display=scrollY>600?'block':'none'},{passive:true});
+render();
+</script>
+</body></html>
